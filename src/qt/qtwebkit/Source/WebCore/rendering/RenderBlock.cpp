@@ -1616,12 +1616,12 @@ void RenderBlock::layoutBlock(bool relayoutChildren, LayoutUnit pageLogicalHeigh
 
     RenderView* renderView = view();
     RenderStyle* styleToUse = style();
-	bool hadLayoutState = renderView->layoutState(); 
-	if (!hadLayoutState) 
-		renderView->pushLayoutState(this); 
-	
-	LayoutStateMaintainer statePusher(renderView, this, locationOffset(), hasColumns() || hasTransform() || hasReflection() || styleToUse->isFlippedBlocksWritingMode(), pageLogicalHeight, pageLogicalHeightChanged, columnInfo());
-		
+    bool hadLayoutState = renderView->layoutState(); 
+    if (!hadLayoutState) 
+        renderView->pushLayoutState(this); 
+
+    LayoutStateMaintainer statePusher(renderView, this, locationOffset(), hasColumns() || hasTransform() || hasReflection() || styleToUse->isFlippedBlocksWritingMode(), pageLogicalHeight, pageLogicalHeightChanged, columnInfo());
+
     // Regions changing widths can force us to relayout our children.
     RenderFlowThread* flowThread = flowThreadContainingBlock();
     if (logicalWidthChangedInRegions(flowThread))
@@ -1766,9 +1766,9 @@ void RenderBlock::layoutBlock(bool relayoutChildren, LayoutUnit pageLogicalHeigh
             frame()->addResetPage(y() / view()->layoutState()->m_pageLogicalHeight);
         }
     }
-	
-	if (!hadLayoutState) 
-		renderView->popLayoutState(this); 
+
+    if (!hadLayoutState) 
+        renderView->popLayoutState(this); 
 }
 
 void RenderBlock::addOverflowFromChildren()
