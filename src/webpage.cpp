@@ -385,6 +385,7 @@ WebPage::WebPage(QObject *parent, const QUrl &baseUrl)
     m_customWebPage->settings()->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
     m_customWebPage->settings()->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
     m_customWebPage->settings()->setAttribute(QWebSettings::FrameFlatteningEnabled, true);
+	m_customWebPage->settings()->setAttribute(QWebSettings::PrintElementBackgrounds, false);
 
     m_customWebPage->settings()->setAttribute(QWebSettings::LocalStorageEnabled, true);
     m_customWebPage->settings()->setLocalStoragePath(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
